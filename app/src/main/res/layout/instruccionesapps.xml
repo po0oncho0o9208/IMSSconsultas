@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/btnconfirmarback"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Ingresa de forma rapida a la app de AGENDA IMSS con la que podras hacer tus registros de pases, txt, licencia y otros documentos del IMSS.
+Con la aplicacion de STICKERS IMSS podras personalizar tu Whatsapp con los mejores stickers del Instituto"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/appsd" />
+
+    <Button
+        android:id="@+id/botonok"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botonprincipal"
+        android:text="Entendido"
+        android:textColor="@android:color/white" />
+
+    <CheckBox
+        android:id="@+id/chbxdialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:buttonTint="#ffffff"
+        android:text="No volver a mostrar"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="50dp"/>
+
+</LinearLayout>

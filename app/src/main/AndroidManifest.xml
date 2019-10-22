@@ -1,0 +1,84 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aojhev.imssconsultas">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icono"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icono"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".NuevoRolVacacional" />
+        <activity android:name=".TabuladorSueldos" />
+        <activity android:name=".ModificacionesContrato" />
+        <activity android:name=".CursosTecnicos" />
+        <activity android:name=".Nutricion" />
+        <activity android:name=".CursoBiblio" />
+        <activity android:name=".CalendarioCompleto" />
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuPrincipal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Calendario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WbView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Documentos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Contratos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Txt"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Promociones"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Noticias"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Jubilados"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PdfActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Permutas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SubMenuActivos" />
+        <activity android:name=".Rol_Vacacional" />
+        <activity android:name=".Cursos" />
+        <activity android:name=".PostEnfermeria" />
+        <activity android:name=".TecnicoEnfermeria" />
+        <activity android:name=".CursoMedico" />
+        <activity android:name=".Prestamos" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9129010539844350~2712093942"/>
+
+    </application>
+
+</manifest>

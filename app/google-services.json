@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "28407980435",
+    "firebase_url": "https://imss-consultas.firebaseio.com",
+    "project_id": "imss-consultas",
+    "storage_bucket": "imss-consultas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28407980435:android:d086b682de53f179cd8866",
+        "android_client_info": {
+          "package_name": "com.aojhev.imssconsultas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28407980435-pjnbl24v109u0dmm2an1j5d0iovrig9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aojhev.imssconsultas",
+            "certificate_hash": "7129becd4e59ea8f6b1e9e7089ff48a795246988"
+          }
+        },
+        {
+          "client_id": "28407980435-ho2luboiite0731o2q6nmkh19c1jl567.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCollcDY9fErg7O9jWsUZ2wuMQiOdNNKAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28407980435-ho2luboiite0731o2q6nmkh19c1jl567.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

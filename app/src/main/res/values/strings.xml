@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">IMSS Consultas</string>
+    <string name="mensajeinicio">Ya podrás recibir NOTIFICACIONES en tu celular, cuando llegue el Tarjetón o alguna noticia relevante del instituto.
+    En esta aplicacion no se piden datos, solo te lleva a la pagina
+    oficial del IMSS para descargar el tarjeton tanto activos como jubilados
+    Tambien obtendras algunos documentos de consulta podras ver promociones.</string>
+    <string name="adbannertest">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adinter">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="whats">WhatsApp</string>
+    <string name="compartir">Compartir</string>
+    <string name="atras">Atras</string>
+    <string name="action_settings">Settings</string>
+    <string name="linkapp">www.google.com.mx</string>
+</resources>
