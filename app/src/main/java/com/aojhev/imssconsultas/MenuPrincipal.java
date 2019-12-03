@@ -30,6 +30,9 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
+
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -52,7 +55,8 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         dialogColor.setAlpha(0);
         super.onCreate(savedInstanceState);
 
-
+        StartAppSDK.init(this, "210155791", false);
+        StartAppAd.disableSplash();
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
 
@@ -65,7 +69,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt("califica", califica);
         editor.apply();
-        if (!sharedPref.getBoolean("apps", false)) {
+        if (sharedPref.getBoolean("apps", false)) {
 
             final AlertDialog.Builder constructor = new AlertDialog.Builder(this);
             View vista = getLayoutInflater().inflate(R.layout.instruccionesapps, null);
@@ -120,7 +124,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_menu_principal);
         mAdView = findViewById(R.id.adView1);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        mAdView.loadAd(adRequest);
         progresbar = findViewById(R.id.pgbr);
         imv = findViewById(R.id.imagevi);
         mInterstitialAd = new InterstitialAd(this);
@@ -190,6 +194,11 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
         dialog.show();
 
+    }
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 
     @Override

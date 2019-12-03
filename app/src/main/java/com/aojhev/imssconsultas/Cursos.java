@@ -12,7 +12,7 @@ import com.google.android.gms.ads.AdView;
 
 public class Cursos extends AppCompatActivity implements View.OnClickListener {
 
-    AdView mAdView;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,7 @@ public class Cursos extends AppCompatActivity implements View.OnClickListener {
         }
 
         setContentView(R.layout.activity_cursos);
-        mAdView = findViewById(R.id.adView1);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+       
 
     }
     public void Tecnico (View view){

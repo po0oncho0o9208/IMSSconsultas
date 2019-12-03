@@ -49,11 +49,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+
         imv = findViewById(R.id.imagevi);
         progresbar = findViewById(R.id.pgbr);
-        AdView mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
         init();
 
 

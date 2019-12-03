@@ -54,7 +54,6 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 public class WbView extends AppCompatActivity implements View.OnClickListener {
-    AdView mAdView;
     ProgressBar progresbar;
     WebView webview;
     String quincena, mes, year;
@@ -81,9 +80,7 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
         imv = findViewById(R.id.imagevi);
 
 
-        mAdView = findViewById(R.id.adView10);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
         progresbar = findViewById(R.id.pgbr);
         webview = findViewById(R.id.WebView);
         btndescargar = findViewById(R.id.btndescargar);

@@ -11,10 +11,10 @@ import android.webkit.WebViewClient;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 public class Noticias extends AppCompatActivity {
 
-    AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,6 @@ public class Noticias extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_noticias);
-        mAdView = findViewById(R.id.adView10);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         WebView myWebView = findViewById(R.id.WebView1);
         WebSettings webSettings = myWebView.getSettings();
@@ -37,6 +34,11 @@ public class Noticias extends AppCompatActivity {
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("https://comunidadnoticiasimss.blogspot.com/");
         myWebView.getSettings().setBuiltInZoomControls(true);
+    }
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
