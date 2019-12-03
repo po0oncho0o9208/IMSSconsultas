@@ -1,20 +1,25 @@
 package com.aojhev.imssconsultas;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.net.Uri;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class Cursos extends AppCompatActivity implements View.OnClickListener {
+public class ConvocatoriaImss extends AppCompatActivity   {
 
 
+    AdView mAdView;
+
+    PDFView pdfView;
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -24,54 +29,22 @@ public class Cursos extends AppCompatActivity implements View.OnClickListener {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        setContentView(R.layout.activity_cursos);
-       
+        setContentView(R.layout.activity_convocatoria_imss);
+        mAdView = findViewById(R.id.adView8);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        pdfView = (PDFView)findViewById(R.id.pdfView);
+        //  pdfView.fromFile("Convenio.pdf").load();
+        pdfView.fromAsset("convocaimss.pdf").load();
+
 
     }
-    public void Tecnico (View view){
-        Intent intent1=new Intent(this,TecnicoEnfermeria.class);
-        startActivity(intent1);
-    }
-    public void Postecnico (View view){
-        Intent intent121=new Intent(this,PostEnfermeria.class);
-        startActivity(intent121);
-    }
-    public  void Medicos (View view){
 
-        Intent intent1271=new Intent(this,CursoMedico.class);
-        startActivity(intent1271);
-    }
-    public  void Biblios (View view){
+    public void Linkregistro (View view){
 
-        Intent intent1471=new Intent(this,CursoBiblio.class);
-        startActivity(intent1471);
-    }
-
-    public  void Nutri (View view){
-
-        Intent intent1971=new Intent(this,Nutricion.class);
-        startActivity(intent1971);
-    }
-
-    public  void Tecnicos (View view){
-
-        Intent intent1071=new Intent(this,CursosTecnicos.class);
-        startActivity(intent1071);
-    }
-
-    public  void Listas (View view){
-
-        Intent intent10713=new Intent(this,Listas.class);
-        startActivity(intent10713);
-    }
-
-    public  void MedicinaFam (View view){
-
-        Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.sntss.org.mx/convocatorias"));
+        Intent intentae4 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.imss.gob.mx/convocatoria-bolsa-trabajo"));
         startActivity(intentae4);
     }
-
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -96,10 +69,5 @@ public class Cursos extends AppCompatActivity implements View.OnClickListener {
 
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 }
