@@ -123,8 +123,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
         setContentView(R.layout.activity_menu_principal);
         mAdView = findViewById(R.id.adView1);
-        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
+
         progresbar = findViewById(R.id.pgbr);
         imv = findViewById(R.id.imagevi);
         mInterstitialAd = new InterstitialAd(this);
@@ -405,11 +404,11 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
                 return true;
             case R.id.agenda:
-
+                verificarapp("com.heisenbergtao.manualsupervivencia",this,"https://play.google.com/store/apps/details?id=com.heisenbergtao.manualsupervivencia");
 
                 return true;
             case R.id.diagnostico:
-
+                verificarapp("com.imsstitucional.haisemberg1213",this,"https://play.google.com/store/apps/details?id=com.imsstitucional.haisemberg1213");
 
                 return true;
             default:

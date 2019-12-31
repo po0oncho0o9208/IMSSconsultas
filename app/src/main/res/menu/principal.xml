@@ -10,14 +10,14 @@
         yourapp:showAsAction="always" />
 
     <item
-        android:visible="false"
+
         android:id="@+id/agenda"
         android:icon="@drawable/agendaas"
         android:title="Agenda IMSS"
         yourapp:showAsAction="always" />
 
     <item
-        android:visible="false"
+
         android:id="@+id/diagnostico"
         android:icon="@mipmap/logo"
         android:title="APP Diagnostico"

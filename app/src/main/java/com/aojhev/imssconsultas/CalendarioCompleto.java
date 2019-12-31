@@ -33,7 +33,7 @@ public class CalendarioCompleto extends AppCompatActivity {
 
         pdfView = findViewById(R.id.pdfView);
         //  pdfView.fromFile("Convenio.pdf").load();
-        pdfView.fromAsset("calen1.pdf").load();
+        pdfView.fromAsset("calencompleto.pdf").load();
     }
 
     @Override
