@@ -11,7 +11,6 @@ import android.webkit.WebViewClient;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.startapp.android.publish.adsCommon.StartAppAd;
 
 public class Noticias extends AppCompatActivity {
 
@@ -37,7 +36,6 @@ public class Noticias extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        StartAppAd.onBackPressed(this);
         super.onBackPressed();
     }
     @Override

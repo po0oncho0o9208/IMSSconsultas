@@ -30,8 +30,6 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.startapp.android.publish.adsCommon.StartAppAd;
-import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -55,12 +53,10 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         dialogColor.setAlpha(0);
         super.onCreate(savedInstanceState);
 
-        StartAppSDK.init(this, "210155791", false);
-        StartAppAd.disableSplash();
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
 
-        if (califica == 15) {
+        if (califica == 10) {
             dialogocalifica();
             califica = 0;
         } else
@@ -199,7 +195,6 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     }
     @Override
     public void onBackPressed() {
-        StartAppAd.onBackPressed(this);
         super.onBackPressed();
     }
 
