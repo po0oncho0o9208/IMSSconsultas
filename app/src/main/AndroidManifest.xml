@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ConvocatoriaImss"></activity>
+        <activity android:name=".ConvocatoriaImss" />
         <activity android:name=".Listas" />
         <activity android:name=".NuevoRolVacacional" />
         <activity android:name=".TabuladorSueldos" />
@@ -30,6 +30,7 @@
         <activity android:name=".Nutricion" />
         <activity android:name=".CursoBiblio" />
         <activity android:name=".CalendarioCompleto" />
+        <activity android:name=".InfoCorona" />
         <activity
             android:name=".Splash"
             android:screenOrientation="portrait">

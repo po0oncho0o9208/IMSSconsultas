@@ -47,6 +47,9 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.File;
 
@@ -63,6 +66,7 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
     Button btndescargar;
     InterstitialAd mInterstitialAd;
     static int[] id = new int[]{R.drawable.ins1, R.drawable.ins2, R.drawable.ins3, R.drawable.ins4, R.drawable.ins5, R.drawable.ins6, R.drawable.ins7};
+    private AdView mAdView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -79,6 +83,15 @@ public class WbView extends AppCompatActivity implements View.OnClickListener {
         instruccionesdialogo(false);
         imv = findViewById(R.id.imagevi);
 
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.banner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         progresbar = findViewById(R.id.pgbr);

@@ -58,7 +58,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     }
 
     private void init() {
-        pdfView = (PDFView) findViewById(R.id.pdfView);
+        pdfView =  findViewById(R.id.pdfView);
         position = getIntent().getIntExtra("position", -1);
         displayFromSdcard();
     }

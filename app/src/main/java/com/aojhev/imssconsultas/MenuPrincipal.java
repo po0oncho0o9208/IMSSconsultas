@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class MenuPrincipal extends AppCompatActivity implements View.OnClickListener {
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botondoc, botoncursos,botonpermuta, botonprestamo, botonconvocaimss;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botondoc, botoncursos,botonpermuta, botonprestamo, botonconvocaimss, botoncorona;
 
     InterstitialAd mInterstitialAd;
     AdView mAdView;
@@ -55,6 +55,8 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
         sharedPref = getSharedPreferences("inicio", Context.MODE_PRIVATE);
         califica = sharedPref.getInt("califica", 0);
+
+
 
         if (califica == 10) {
             dialogocalifica();
@@ -156,6 +158,9 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         botoncursos.setOnClickListener(this);
         botonconvocaimss = findViewById(R.id.botonconvocatoria);
         botonconvocaimss.setOnClickListener(this);
+
+        botoncorona = findViewById(R.id.botoncoronavirus);
+        botoncorona.setOnClickListener(this);
 
     }
 
@@ -304,6 +309,11 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
             case R.id.botoncursos:
                 Intent intent1213 = new Intent(this, Cursos.class);
                 startActivity(intent1213);
+                finish();
+                break;
+            case R.id.botoncoronavirus:
+                Intent intent1214 = new Intent(this, InfoCorona.class);
+                startActivity(intent1214);
                 finish();
                 break;
         }

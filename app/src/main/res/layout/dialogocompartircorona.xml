@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/botoncoronavirus"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_margin="30dp"
+        android:id="@+id/txt"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Comparte esta informacion en tus redes sociales para que se difunda "
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/botonface"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/btnface"
+            android:textColor="@android:color/white" />
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/botonmessenger"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btnmessenger"
+            android:layout_marginBottom="50dp"
+            android:textColor="@android:color/white" />
+        <Button
+            android:layout_marginBottom="50dp"
+            android:id="@+id/botonwhats"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btnwhats"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:layout_marginBottom="50dp"
+            android:id="@+id/botonmas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btnmas"
+            android:textColor="@android:color/white" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</LinearLayout>
