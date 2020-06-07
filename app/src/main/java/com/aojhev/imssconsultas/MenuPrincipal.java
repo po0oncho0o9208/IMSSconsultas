@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class MenuPrincipal extends AppCompatActivity implements View.OnClickListener {
-    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botondoc, botoncursos,botonpermuta, botonprestamo, botonconvocaimss, botoncorona;
+    LinearLayout botontarjeton, botoncalendario, botonpromociones, botonnoticias, botonrol, botonconsulta, botondoc, botoncursos,botonpermuta, botonprestamo, botonconvocaimss;
 
     InterstitialAd mInterstitialAd;
     AdView mAdView;
@@ -159,8 +159,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         botonconvocaimss = findViewById(R.id.botonconvocatoria);
         botonconvocaimss.setOnClickListener(this);
 
-        botoncorona = findViewById(R.id.botoncoronavirus);
-        botoncorona.setOnClickListener(this);
+
 
     }
 
@@ -311,11 +310,7 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
                 startActivity(intent1213);
                 finish();
                 break;
-            case R.id.botoncoronavirus:
-                Intent intent1214 = new Intent(this, InfoCorona.class);
-                startActivity(intent1214);
-                finish();
-                break;
+
         }
 
     }

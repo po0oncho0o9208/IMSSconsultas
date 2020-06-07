@@ -30,7 +30,6 @@
         <activity android:name=".Nutricion" />
         <activity android:name=".CursoBiblio" />
         <activity android:name=".CalendarioCompleto" />
-        <activity android:name=".InfoCorona" />
         <activity
             android:name=".Splash"
             android:screenOrientation="portrait">

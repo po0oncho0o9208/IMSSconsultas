@@ -45,7 +45,7 @@ public class Noticias extends AppCompatActivity {
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("https://comunidadnoticiasimss.blogspot.com/");
+        myWebView.loadUrl("https://eltioimss.blogspot.com/?m=1");
         myWebView.getSettings().setBuiltInZoomControls(true);
     }
     @Override
