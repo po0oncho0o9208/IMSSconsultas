@@ -80,21 +80,24 @@ public class RecuperaSoporte extends AppCompatActivity implements View.OnClickLi
                 // Definimos un Asunto para el Email
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Recuperar Contraseña Tarjeton Digital");
                 // Obtenemos la referencia al texto y lo pasamos al Email Intent
+                emailIntent.putExtra(Intent.EXTRA_TEXT,"Que tal me podrian ayudar a reestablecer contraseña de la matricula ...");
                 try {
                     //Enviamos el Correo iniciando una nueva Activity con el emailIntent.
                     startActivity(Intent.createChooser(emailIntent, "Enviar E-mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(RecuperaSoporte.this, "No hay ningun cliente de correo instalado.", Toast.LENGTH_SHORT).show();
                 }
-                finish();
+
                 break;
 
             case R.id.botonllamada:
+                try {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:5553331100"));
+                    startActivity(intent);
+                } catch (android.content.ActivityNotFoundException ex) {
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:5553331100"));
-                startActivity(intent);
-
+                }
                 break;
         }
 

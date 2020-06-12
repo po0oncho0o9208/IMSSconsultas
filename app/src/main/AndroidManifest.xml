@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -68,6 +68,15 @@
             android:name=".PdfActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".RecuActivos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecuJubilados"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecuperaSoporte"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Permutas"
             android:screenOrientation="portrait" />
         <activity
@@ -84,6 +93,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6123975087377543~1236243902" />
+
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.os.Environment;
 import android.util.Log;
@@ -76,7 +77,6 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
         pdfView.fromFile(MainActivity.fileList.get(position))
                 .defaultPage(pageNumber)
                 .enableSwipe(true)
-
                 .swipeHorizontal(false)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
@@ -137,17 +137,22 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
 
     @Override
     public void onClick(View v) {
+        File pdf = new File (String.valueOf(MainActivity.fileList.get(position)));
+        Uri pdfUri;
+
         pdfFileName = MainActivity.fileList.get(position).getName();
         File pdfsalida = new File(Environment.getExternalStoragePublicDirectory (Environment.DIRECTORY_DOWNLOADS), pdfFileName);
                 //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
        // File outputFile = new File(Environment.getExternalStoragePublicDirectory
           //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
-        Uri uri = Uri.fromFile(pdfsalida);
+
+            pdfUri = Uri.fromFile(pdf);
+
 
         Intent share = new Intent();
         share.setAction(Intent.ACTION_SEND);
-        share.setType("application/pdf");
-        share.putExtra(Intent.EXTRA_STREAM, uri);
+       // share.setType("application/pdf");
+        share.putExtra(Intent.EXTRA_STREAM, pdfUri);
         share.setPackage("com.whatsapp");
 
         this.startActivity(share);
