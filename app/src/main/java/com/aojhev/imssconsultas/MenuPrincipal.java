@@ -120,8 +120,9 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
         }
 
         setContentView(R.layout.activity_menu_principal);
-        mAdView = findViewById(R.id.adView1);
-
+        mAdView = findViewById(R.id.banner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         progresbar = findViewById(R.id.pgbr);
         imv = findViewById(R.id.imagevi);
         mInterstitialAd = new InterstitialAd(this);
@@ -404,12 +405,12 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
                 return true;
             case R.id.agenda:
-                verificarapp("com.heisenbergtao.manualsupervivencia",this,"https://play.google.com/store/apps/details?id=com.heisenbergtao.manualsupervivencia");
 
+                //dialogoappsexternas("com.heisenbergtao.manualsupervivencia","https://play.google.com/store/apps/details?id=com.heisenbergtao.manualsupervivencia", "Manual de supervivencia IMSS");
                 return true;
             case R.id.diagnostico:
-                verificarapp("com.imsstitucional.haisemberg1213",this,"https://play.google.com/store/apps/details?id=com.imsstitucional.haisemberg1213");
 
+                //dialogoappsexternas("com.imsstitucional.haisemberg1213","https://play.google.com/store/apps/details?id=com.imsstitucional.haisemberg1213", "Stickers IMSS");
                 return true;
             default:
                 startActivity(intentmenu);
@@ -418,17 +419,57 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void verificarapp(String nombrePaquete, Context context, String link) {
-        Intent intentmenu;
-        PackageManager pm = context.getPackageManager();
+
+    private void dialogoappsexternas(final String nombrePaquete, final String link, String nombreapp) {
+        boolean existeapp;
+        PackageManager pm = this.getPackageManager();
         try {
             pm.getPackageInfo(nombrePaquete, PackageManager.GET_ACTIVITIES);
-            intentmenu = getPackageManager().getLaunchIntentForPackage(nombrePaquete);
-            startActivity(intentmenu);
+            existeapp = true;
+
         } catch (PackageManager.NameNotFoundException e) {
-            intentmenu = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-            startActivity(intentmenu);
+            existeapp = false;
         }
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MenuPrincipal.this);
+        final LayoutInflater inflater = getLayoutInflater();
+        View vi = inflater.inflate(R.layout.dialogoappext, null);
+        builder.setView(vi);
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(true);
+        dialog.getWindow().setBackgroundDrawable(dialogColor);
+        TextView titulo = vi.findViewById(R.id.texttitulo);
+        if (existeapp)
+            titulo.setText("¿Deseas abrir " + nombreapp + "?");
+        else
+                titulo.setText("No encontramos la app " + nombreapp + " ¿deseas descargarla de Play Store?");
+        final boolean  existeappfinal = existeapp;
+
+            Button botonsi = vi.findViewById(R.id.botonsi);
+            botonsi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (existeappfinal) {
+                        Intent abrirapp;
+                        abrirapp = getPackageManager().getLaunchIntentForPackage(nombrePaquete);
+                        startActivity(abrirapp);
+
+                    }else {Intent descargarapp;
+                        descargarapp = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                        startActivity(descargarapp);}
+                }
+            });
+            Button botonno = vi.findViewById(R.id.botonno);
+            botonno.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        dialog.cancel();
+
+                }
+            });
+
+            dialog.show();
+
 
     }
 

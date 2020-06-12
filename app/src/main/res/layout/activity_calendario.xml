@@ -110,7 +110,7 @@
 
         ads:adSize="SMART_BANNER"
 
-        ads:adUnitId="@string/adbannertest"
+        ads:adUnitId="@string/adbanner"
         android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

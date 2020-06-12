@@ -132,7 +132,7 @@ public class Jubilados extends AppCompatActivity implements View.OnClickListener
         imv = findViewById(R.id.imagevi);
 
 
-        mAdView = findViewById(R.id.adView10);
+        mAdView = findViewById(R.id.banner);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         progresbar = findViewById(R.id.pgbr);

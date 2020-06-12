@@ -29,20 +29,18 @@
         android:id="@+id/btndescargar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/adView10"
-
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_toLeftOf="@+id/pgbr"
-        android:layout_toStartOf="@+id/pgbr"
+        android:layout_above="@+id/banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/botonprincipal"
         android:text="  Descargar  "
         android:textColor="#ffffff" />
 
-    <com.startapp.android.publish.ads.banner.Banner
-        android:id="@+id/startAppBanner"
-        android:layout_width="wrap_content"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/adbanner" />
 </RelativeLayout>

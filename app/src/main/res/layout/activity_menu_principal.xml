@@ -320,11 +320,22 @@
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
+    <com.google.android.gms.ads.AdView
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/adbanner" />
 
 
 
