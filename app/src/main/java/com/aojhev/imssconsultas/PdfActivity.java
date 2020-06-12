@@ -27,7 +27,7 @@ import com.shockwave.pdfium.PdfDocument;
 import java.io.File;
 import java.util.List;
 
-public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener, View.OnClickListener {
+public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
     public static final String SAMPLE_FILE = "android_tutorial.pdf";
     PDFView pdfView;
     Integer pageNumber = 0;
@@ -35,7 +35,6 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     String TAG = "PdfActivity";
     int position = -1;
     private AdView mAdView;
-    Button sharepdf;
 
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
@@ -53,8 +52,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
-        sharepdf = findViewById(R.id.sharepdf);
-        sharepdf.setOnClickListener(this);
+
         init();
 
         mAdView = findViewById(R.id.adView);
@@ -135,27 +133,6 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     }
 
 
-    @Override
-    public void onClick(View v) {
-        File pdf = new File (String.valueOf(MainActivity.fileList.get(position)));
-        Uri pdfUri;
 
-        pdfFileName = MainActivity.fileList.get(position).getName();
-        File pdfsalida = new File(Environment.getExternalStoragePublicDirectory (Environment.DIRECTORY_DOWNLOADS), pdfFileName);
-                //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
-       // File outputFile = new File(Environment.getExternalStoragePublicDirectory
-          //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
-
-            pdfUri = Uri.fromFile(pdf);
-
-
-        Intent share = new Intent();
-        share.setAction(Intent.ACTION_SEND);
-       // share.setType("application/pdf");
-        share.putExtra(Intent.EXTRA_STREAM, pdfUri);
-        share.setPackage("com.whatsapp");
-
-        this.startActivity(share);
-    }
 }
 

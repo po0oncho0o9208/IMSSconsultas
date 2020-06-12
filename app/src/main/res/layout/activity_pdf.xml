@@ -14,13 +14,7 @@
 
     </com.github.barteksc.pdfviewer.PDFView>
 
-    <Button
-        android:id="@+id/sharepdf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/adView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
+
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
