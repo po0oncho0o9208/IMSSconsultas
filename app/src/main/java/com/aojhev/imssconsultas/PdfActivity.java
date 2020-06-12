@@ -1,15 +1,19 @@
 package com.aojhev.imssconsultas;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
@@ -19,9 +23,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.shockwave.pdfium.PdfDocument;
 
+import java.io.File;
 import java.util.List;
 
-public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
+public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener, View.OnClickListener {
     public static final String SAMPLE_FILE = "android_tutorial.pdf";
     PDFView pdfView;
     Integer pageNumber = 0;
@@ -29,7 +34,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     String TAG = "PdfActivity";
     int position = -1;
     private AdView mAdView;
-
+    Button sharepdf;
 
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
@@ -47,6 +52,8 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
+        sharepdf = findViewById(R.id.sharepdf);
+        sharepdf.setOnClickListener(this);
         init();
 
         mAdView = findViewById(R.id.adView);
@@ -128,5 +135,22 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     }
 
 
+    @Override
+    public void onClick(View v) {
+        pdfFileName = MainActivity.fileList.get(position).getName();
+        File pdfsalida = new File(Environment.getExternalStoragePublicDirectory (Environment.DIRECTORY_DOWNLOADS), pdfFileName);
+                //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
+       // File outputFile = new File(Environment.getExternalStoragePublicDirectory
+          //      (Environment.DIRECTORY_DOWNLOADS), "example.pdf");
+        Uri uri = Uri.fromFile(pdfsalida);
+
+        Intent share = new Intent();
+        share.setAction(Intent.ACTION_SEND);
+        share.setType("application/pdf");
+        share.putExtra(Intent.EXTRA_STREAM, uri);
+        share.setPackage("com.whatsapp");
+
+        this.startActivity(share);
+    }
 }
 
