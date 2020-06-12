@@ -15,21 +15,21 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import static android.Manifest.permission.CALL_PHONE;
 
-public class ConvocatoriaImss extends AppCompatActivity implements View.OnClickListener {
+public class RecuperaSoporte extends AppCompatActivity implements View.OnClickListener {
 
 
     private static final int SOLICITUD_PERMISO_CALL_PHONE = 1;
     private Intent intentllamada;
-    LinearLayout botonrecujubilados, botonrecuactivos, botonsoportetecnico;
+    LinearLayout botoncorreo, botonllamada;
     ColorDrawable dialogColor;
-private AdView mAdView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,8 @@ private AdView mAdView;
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         }
-
-        setContentView(R.layout.activity_convocatoria_imss);
+        setContentView(R.layout.activity_recupera_soporte);
         mAdView = findViewById(R.id.banner);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -51,14 +49,12 @@ private AdView mAdView;
 // SI NOS CONCEDE EL PERMISO Y LANZA LA LLAMADA
 
 
-        botonrecujubilados = findViewById(R.id.botonrecujubilados);
-        botonrecujubilados.setOnClickListener(this);
+        botonllamada = findViewById(R.id.botonllamada);
+        botonllamada.setOnClickListener(this);
 
-        botonrecuactivos = findViewById(R.id.botonrecuactivos);
-        botonrecuactivos.setOnClickListener(this);
+        botoncorreo = findViewById(R.id.botoncorreo);
+        botoncorreo.setOnClickListener(this);
 
-        botonsoportetecnico = findViewById(R.id.botonsoporte);
-        botonsoportetecnico.setOnClickListener(this);
 
         validaPermisos();
 
@@ -69,25 +65,36 @@ private AdView mAdView;
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.botonrecujubilados:
 
-                Intent intent1122 = new Intent(this, RecuJubilados.class);
-                startActivity(intent1122);
+            case R.id.botoncorreo:
+
+                //Instanciamos un Intent del tipo ACTION_SEND
+                Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                //Definimos la tipologia de datos del contenido dle Email en este caso text/html
+                emailIntent.setType("text/html");
+                // Indicamos con un Array de tipo String las direcciones de correo a las cuales
+                //queremos enviar el texto
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"soporte.tarjeton@imss.gob.mx"});
+                // Definimos un titulo para el Email
+                emailIntent.putExtra(android.content.Intent.EXTRA_TITLE, "IMSS");
+                // Definimos un Asunto para el Email
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Recuperar Contraseña Tarjeton Digital");
+                // Obtenemos la referencia al texto y lo pasamos al Email Intent
+                try {
+                    //Enviamos el Correo iniciando una nueva Activity con el emailIntent.
+                    startActivity(Intent.createChooser(emailIntent, "Enviar E-mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(RecuperaSoporte.this, "No hay ningun cliente de correo instalado.", Toast.LENGTH_SHORT).show();
+                }
                 finish();
                 break;
 
-            case R.id.botonrecuactivos:
+            case R.id.botonllamada:
 
-                Intent intent112 = new Intent(this, RecuActivos.class);
-                startActivity(intent112);
-                finish();
-                break;
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:5553331100"));
+                startActivity(intent);
 
-            case R.id.botonsoporte:
-
-                Intent intent1132 = new Intent(this, RecuperaSoporte.class);
-                startActivity(intent1132);
-                finish();
                 break;
         }
 
@@ -106,7 +113,7 @@ private AdView mAdView;
         }
 
         if ((shouldShowRequestPermissionRationale(CALL_PHONE))) {
-            AlertDialog.Builder dialogo = new AlertDialog.Builder(ConvocatoriaImss.this);
+            AlertDialog.Builder dialogo = new AlertDialog.Builder(RecuperaSoporte.this);
             dialogo.setTitle("Permisos Desactivados");
             dialogo.setMessage("Debe aceptar los permisos para el correcto funcionamiento de la App");
 
@@ -128,7 +135,7 @@ private AdView mAdView;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            startActivity(new Intent(getBaseContext(), MenuPrincipal.class)
+            startActivity(new Intent(getBaseContext(), ConvocatoriaImss.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
             return true;
@@ -141,7 +148,7 @@ private AdView mAdView;
 
 
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getBaseContext(), MenuPrincipal.class)
+            startActivity(new Intent(getBaseContext(), ConvocatoriaImss.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }

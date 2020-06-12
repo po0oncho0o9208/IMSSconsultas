@@ -36,7 +36,7 @@
                 android:layout_width="265dp"
                 android:layout_height="400dp"
                 android:adjustViewBounds="false"
-                android:background="@drawable/ins1"
+                android:background="@drawable/ins0"
                 android:cropToPadding="false"
                 android:textAlignment="center" />
 
